@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulenza Online - Studio Legale Agostini</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Specific Styles for Booking */
+        .booking-container {
+            max-width: 800px;
+            margin: -50px auto 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .booking-step {
+            margin-bottom: 30px;
+        }
+
+        .booking-step h3 {
+            color: #C08497;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        /* Date Picker Style */
+        .date-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+        }
+
+        .date-card {
+            min-width: 100px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .date-card:hover {
+            border-color: #C08497;
+            background: #fff0f5;
+        }
+
+        .date-card.active {
+            background: #C08497;
+            color: white;
+            border-color: #C08497;
+        }
+
+        .date-card .day-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .date-card .day-date {
+            font-size: 0.9em;
+        }
+
+        /* Time Slots Grid */
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .time-slot {
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .time-slot:hover {
+            border-color: #C08497;
+            color: #C08497;
+        }
+
+        .time-slot.active {
+            background: #C08497;
+            color: white;
+            border-color: #C08497;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .btn-book {
+            width: 100%;
+            background: #C08497;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-book:hover {
+            background: #a06b7d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.jpg" alt="Studio Legale Agostini">
+                Studio Legale Agostini
+            </a>
+
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="family-law.html" data-i18n="nav_family">Diritto di Famiglia</a></li>
+                    <li><a href="consultation.html" class="active" data-i18n="nav_online">Consulenza Online</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav_contact">Contatti</a></li>
+                </ul>
+
+                <!-- New Dropdown Language Switcher -->
+                <div class="lang-wrapper">
+                    <label for="language-select" class="lang-label" data-i18n="lang_label">LINGUA</label>
+                    <select id="language-select" class="lang-select">
+                        <option value="it">IT</option>
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                    </select>
+                </div>
+
+                <div class="mobile-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header" style="background-image: url('assets/corte_cassazione.jpg'); height: 50vh;">
+        <div class="overlay"></div>
+        <div class="container" style="text-align: center; color: white; position: relative; z-index: 1;">
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem;" data-i18n="consultation_title">
+                Consulenza Online</h1>
+            <p style="font-size: 1.2rem; margin-top: 10px; opacity: 0.9;" data-i18n="consultation_subtitle">Prenota la
+                tua videochiamata direttamente dal calendario.</p>
+        </div>
+    </header>
+
+    <!-- Main Booking Section -->
+    <!-- Main Booking Section -->
+    <div class="container">
+
+        <div class="booking-container">
+
+            <!-- Banner -->
+            <div class="consultation-banner fade-in"
+                style="background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 30px; text-align: center;">
+                <p data-i18n="consultation_banner">Nota: Il seguente meeting è una proposta di appuntamento, l'avvocato
+                    si riserva di modificare l'appuntamento o proporre altri orari.</p>
+            </div>
+
+            <!-- Step 1: Select Date -->
+            <div class="booking-step">
+                <h3 data-i18n="step_1">1. Scegli la Data</h3>
+                <div class="date-scroll" id="date-container">
+                    <!-- JS will populate dates -->
+                </div>
+            </div>
+
+            <!-- Step 2: Select Time -->
+            <div class="booking-step">
+                <h3 data-i18n="step_2">2. Scegli l'Orario</h3>
+                <div id="time-container" class="time-grid">
+                    <p style="color: #888; grid-column: 1/-1;">Seleziona prima una data.</p>
+                </div>
+            </div>
+
+            <!-- Step 3: Your Details -->
+            <div class="booking-step">
+                <h3 data-i18n="step_3">3. I Tuoi Dati</h3>
+                <div class="form-group">
+                    <label for="client-name" data-i18n="form_name">Nome e Cognome</label>
+                    <input type="text" id="client-name" placeholder="Inserisci il tuo nome">
+                </div>
+                <div class="form-group">
+                    <label for="client-message" data-i18n="form_message">Messaggio / Note</label>
+                    <textarea id="client-message" rows="3"
+                        placeholder="Scrivi qui un breve appunto dell'argomento di cui vuoi parlare"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="client-email" data-i18n="form_email">La tua Email</label>
+                    <input type="email" id="client-email" placeholder="Inserisci la tua email">
+                </div>
+
+                <!-- Privacy Checkbox -->
+                <div style="margin-top: 15px; display: flex; align-items: start; gap: 10px;">
+                    <input type="checkbox" id="consultation-privacy" style="width: auto; margin-top: 5px;">
+                    <label for="consultation-privacy" style="font-size: 0.9em; line-height: 1.4;"
+                        data-i18n="consultation_privacy">
+                        Dichiaro di aver letto la privacy policy dello Studio Legale Agostini e di acconsentire, ai soli
+                        Dichiaro di aver letto la privacy policy dello Studio Legale Agostini e di acconsentire, ai soli
+                        fini del servizio richiesto, al trattamento dei miei dati personali. Consulta la <a href='#'
+                            class="privacy-link"
+                            onclick="window.open('privacy.html', 'PrivacyPolicy', 'width=600,height=800'); return false;">privacy
+                            policy</a>.
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn-book" id="book-btn" data-i18n="consultation_btn">Prenota su Google Calendar</button>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9em; color: #666;"
+                data-i18n="consultation_calendar_disclaimer">
+                Cliccando verrai reindirizzato al tuo Google Calendar per confermare l'evento e invitare l'avvocato.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Studio Legale Agostini</div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="cookie.html">Cookie Policy</a>
+                </div>
+                <div class="footer-info">
+                    <p>P.IVA: IT15956051005</p>
+                    <p>&copy; 2024 Studio Legale Agostini. Tutti i diritti riservati.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline Booking Logic specifically for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateContainer = document.getElementById('date-container');
+            const timeContainer = document.getElementById('time-container');
+            const bookBtn = document.getElementById('book-btn');
+
+            let selectedDate = null;
+            let selectedTime = null;
+
+            // 1. Generate Next 14 Days (excluding Sundays based on requirement, though requirement said Mon-Fri + Sat)
+            // Req: Mon-Fri 9-20, Sat 9-13
+            const days = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
+            const today = new Date();
+
+            for (let i = 0; i < 14; i++) {
+                const d = new Date(today);
+                d.setDate(today.getDate() + i);
+                const dayIndex = d.getDay();
+
+                if (dayIndex === 0) continue; // Skip Sundays
+
+                const dateCard = document.createElement('div');
+                dateCard.className = 'date-card';
+                dateCard.innerHTML = `
+                    <span class="day-name">${days[dayIndex]}</span>
+                    <span class="day-date">${d.getDate()}/${d.getMonth() + 1}</span>
+                `;
+
+                // Store date properly
+                dateCard.dataset.fullDate = d.toISOString().split('T')[0]; // YYYY-MM-DD
+                dateCard.dataset.dayIndex = dayIndex;
+
+                dateCard.addEventListener('click', () => {
+                    // UI Toggle
+                    document.querySelectorAll('.date-card').forEach(c => c.classList.remove('active'));
+                    dateCard.classList.add('active');
+
+                    selectedDate = dateCard.dataset.fullDate;
+                    selectedTime = null; // Reset time
+                    generateTimeSlots(dayIndex);
+                });
+
+                dateContainer.appendChild(dateCard);
+            }
+
+            function generateTimeSlots(dayIndex) {
+                timeContainer.innerHTML = '';
+                let start, end;
+
+                if (dayIndex >= 1 && dayIndex <= 5) {
+                    // Mon-Fri: 9-20 (Last slot 19:00 for 1 hour duration?) "Disponibili dalle 9 alle 20" -> assume 9:00 to 19:00 start times (ending at 20:00)
+                    start = 9;
+                    end = 19;
+                } else if (dayIndex === 6) {
+                    // Sat: 9-13 (Last slot 12:00)
+                    start = 9;
+                    end = 12;
+                }
+
+                for (let h = start; h <= end; h++) {
+                    const slot = document.createElement('div');
+                    slot.className = 'time-slot';
+                    slot.textContent = `${h}:00`;
+
+                    slot.addEventListener('click', () => {
+                        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('active'));
+                        slot.classList.add('active');
+                        selectedTime = h;
+                    });
+
+                    timeContainer.appendChild(slot);
+                }
+            }
+
+            bookBtn.addEventListener('click', () => {
+                if (!selectedDate || !selectedTime) {
+                    alert('Per favore seleziona una data e un orario.');
+                    return;
+                }
+                const name = document.getElementById('client-name').value;
+                const email = document.getElementById('client-email').value;
+                const message = document.getElementById('client-message').value;
+                const privacyChecked = document.getElementById('consultation-privacy').checked;
+
+                if (!name || !email) {
+                    alert('Per favore inserisci il tuo nome e la tua email.');
+                    return;
+                }
+
+                if (!privacyChecked) {
+                    alert('Devi accettare la privacy policy per procedere.');
+                    return;
+                }
+
+                // Construct Google Calendar Link
+                // Format: YYYYMMDDThhmmss
+                const dateStr = selectedDate.replace(/-/g, ''); // YYYYMMDD
+                const startTimeStr = `${selectedTime.toString().padStart(2, '0')}0000`;
+                const endTimeStr = `${(selectedTime + 1).toString().padStart(2, '0')}0000`;
+
+                const startDateTime = `${dateStr}T${startTimeStr}`;
+                const endDateTime = `${dateStr}T${endTimeStr}`;
+
+                const title = encodeURIComponent("Consulenza Legale Online - " + name);
+                const details = encodeURIComponent(`Prenotazione effettuata da: ${name}\nEmail cliente: ${email}\nMessaggio cliente: ${message}\n`);
+                const location = encodeURIComponent("Google Meet");
+                const lawyerEmail = "avv.noemiagostini@gmail.com";
+
+                const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDateTime}/${endDateTime}&details=${details}&location=${location}&add=${lawyerEmail}`;
+
+                window.open(gcalUrl, '_blank');
+            });
+
+        });
+    </script>
+</body>
+
+</html>

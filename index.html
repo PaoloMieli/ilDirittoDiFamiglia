@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avv. Noemi Agostini - Diritto di Famiglia</title>
+    <meta name="description"
+        content="Avv. Noemi Agostini, esperta in diritto di famiglia, fornisce servizi legali professionali e compassionevoli a Marino (RM).">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.jpg" alt="Studio Legale Agostini">
+                Studio Legale Agostini
+            </a>
+
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about" data-i18n="nav_about">Chi Sono</a></li>
+                    <li><a href="family-law.html" data-i18n="nav_family">Diritto di Famiglia</a></li>
+                    <li><a href="index.html#practice-areas" data-i18n="nav_practice">Aree di Pratica</a></li>
+                    <li><a href="consultation.html" data-i18n="nav_online">Consulenza Online</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contatti</a></li>
+                </ul>
+
+                <!-- New Dropdown Language Switcher -->
+                <div class="lang-wrapper">
+                    <label for="language-select" class="lang-label" data-i18n="lang_label">LINGUA</label>
+                    <select id="language-select" class="lang-select">
+                        <option value="it">IT</option>
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle (Simplified) -->
+            <div class="mobile-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content fade-in">
+                <h1 data-i18n="hero_title">Consulenza OnLine ed in presenza per il Futuro della Tua Famiglia.</h1>
+                <p data-i18n="hero_subtitle">Navigare nel diritto di famiglia con empatia, competenza e dedizione
+                    incrollabile.</p>
+
+                <!-- Service Selection Box -->
+                <div class="service-selection-box">
+                    <h3 data-i18n="box_title">Di cosa hai bisogno?</h3>
+                    <div class="selection-row">
+                        <select id="service-select" class="service-select-input">
+                            <option value="" disabled selected data-i18n="box_default">Seleziona un Servizio...</option>
+                            <option value="family-law.html" data-i18n="nav_family">Diritto di Famiglia</option>
+                            <option value="debt.html" data-i18n="service_debt">Recupero Crediti</option>
+                            <option value="contracts.html" data-i18n="service_contract">Contrattualistica</option>
+                            <option value="malpractice.html" data-i18n="service_malpractice">Responsabilità Medica
+                            </option>
+                            <option value="liability.html" data-i18n="service_liablity">Responsabilità Civile</option>
+                            <option value="inheritance.html" data-i18n="service_inheritance">Cause Successorie</option>
+                            <option value="leases.html" data-i18n="service_leases">Locazioni</option>
+                        </select>
+                        <button id="service-go-btn" class="btn-go" data-i18n="go_btn">VAI</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="#contact" class="btn btn-primary" data-i18n="cta_schedule">Prenota una Consulenza</a>
+                </div>
+
+            </div>
+            <div class="hero-image fade-in">
+                <img src="assets/lawyer_profile.png" alt="Avv. Noemi Agostini">
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div style="background: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 15px;">
+                <div class="section-header fade-in">
+                    <h2 data-i18n="about_title">Chi Sono</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content fade-in">
+                    <p data-i18n="about_p1">
+                        Salve, sono Noemi Agostini. Come avvocato dedicato al diritto di famiglia, capisco che le
+                        questioni
+                        legali che riguardano la tua famiglia sono tra le sfide più difficili che potresti dover
+                        affrontare.
+                        La mia missione è fornirti una guida chiara e compassionevole e una forte rappresentanza.
+                    </p>
+                    <p data-i18n="about_p2">
+                        Con oltre 10 anni di esperienza, sono specializzata nell'aiutare le persone a navigare nelle
+                        complessità del divorzio, delle dispute per l'affidamento e dell'adozione. Credo in un approccio
+                        incentrato sul cliente, dove le tue esigenze e la tua tranquillità vengono prima di tutto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section id="practice-areas" class="section services-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 data-i18n="nav_practice">Aree di Pratica</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <a href="debt.html" class="service-card fade-in">
+                    <h3 data-i18n="service_debt">Recupero Crediti</h3>
+                    <p data-i18n="desc_debt">Strategie efficaci per il recupero dei tuoi crediti.</p>
+                </a>
+                <!-- Card 2 -->
+                <a href="contracts.html" class="service-card fade-in">
+                    <h3 data-i18n="service_contract">Contrattualistica</h3>
+                    <p data-i18n="desc_contract">Redazione e revisione contrattuale.</p>
+                </a>
+                <!-- Card 3 -->
+                <a href="malpractice.html" class="service-card fade-in">
+                    <h3 data-i18n="service_malpractice">Responsabilità Medica</h3>
+                    <p data-i18n="desc_malpractice">Assistenza legale per vittime di errori medici.</p>
+                </a>
+                <!-- Card 4 -->
+                <a href="liability.html" class="service-card fade-in">
+                    <h3 data-i18n="service_liablity">Responsabilità Civile</h3>
+                    <p data-i18n="desc_liablity">Tutela e richiesta danni.</p>
+                </a>
+                <!-- Card 5 -->
+                <a href="inheritance.html" class="service-card fade-in">
+                    <h3 data-i18n="service_inheritance">Cause Successorie</h3>
+                    <p data-i18n="desc_inheritance">Gestione di questioni ereditarie e testamenti.</p>
+                </a>
+                <!-- Card 6 -->
+                <a href="leases.html" class="service-card fade-in">
+                    <h3 data-i18n="service_leases">Locazioni</h3>
+                    <p data-i18n="desc_leases">Assistenza completa per locazioni e sfratti.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Law Section -->
+    <section id="family-law-preview" class="section services-section"
+        style="background-color: rgba(255, 255, 255, 0.8);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 data-i18n="nav_family">Diritto di Famiglia</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content fade-in" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>
+                    Lo Studio Legale Agostini offre assistenza specializzata in tutte le aree del diritto di famiglia,
+                    garantendo supporto professionale ed empatico in momenti delicati come separazioni, divorzi e
+                    gestione dei figli.
+                </p>
+                <a href="family-law.html" class="cta-button" style="margin-top: 20px;">Scopri di più</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 data-i18n="contact_title">Contattaci</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info fade-in">
+                    <h3 data-i18n="contact_info_title">Informazioni di Contatto</h3>
+                    <p><strong>Ufficio:</strong> Via Edmondo De Amicis 11<br>00047 Marino (RM)</p>
+                    <p><strong>Cellulare:</strong> 344 652 8846</p>
+                    <p><strong>Ufficio:</strong> 06 935 48104</p>
+                    <p><strong>Email:</strong> avv.noemiagostini@gmail.com</p>
+                    <p><strong>Orari:</strong> Lun-Ven, 9:00 - 20:00</p>
+
+                    <div class="social-section">
+                        <h3 data-i18n="social_title">Seguimi sui Social</h3>
+                        <div class="social-links">
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/ildirittodifamigliaspiegato/" target="_blank"
+                                aria-label="Instagram">
+                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.9 0-184.9zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                </svg>
+                            </a>
+
+                            <!-- Threads -->
+                            <a href="https://www.threads.com/@ildirittodifamigliaspiegato?xmt=AQF00PepQp_hmtFx858KDdTMMYLuqvO-W54IsBOX-jRmaQU"
+                                target="_blank" aria-label="Threads">
+                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M331.5 235.7c2.2 .9 4.2 1.9 6.3 2.8c29.2 14.1 50.6 35.2 61.8 61.4c15.7 36.5 17.2 95.8-30.3 143.2c-36.2 36.2-80.3 52.5-142.6 53h-.3c-70.2-.5-124.1-24.1-160.4-70.2c-32.3-41-48.9-98.1-49.5-169.6V256v-.2C17 184.3 33.6 127.2 65.9 86.2C102.2 40.1 156.2 16.5 226.4 16h.3c70.3 .5 124.9 24 160.7 69.9c18.6 23.9 32.6 55.3 41.7 93.4c1.4 5.8-2.2 11.7-8 13.1s-11.7-2.2-13.1-8c-8.5-35.9-21.7-65.6-39.1-88.1C337.4 54 289.1 32 226.7 31.6h-.3c-63.4 .5-111.9 21.8-144.1 62.7c-28.7 36.4-43.5 87.2-44 161.7v.2c.5 74.7 15.3 125.5 44 161.9c32.2 40.9 80.8 62.2 144.1 62.7h.3c56.1-.4 96-15.1 120.7-39.8c34.7-34.7 32-84.9 19.8-113.3c-8.5-19.1-24.8-34.9-47.8-46.7c-22.3-11.4-53-17.5-85.3-17.5c-30.3 0-61.9 5.4-87.3 20.3c-36.3 21.3-64.8 62.3-66.2 116.8c.8 40.5 17.1 82.3 51.5 106.1c25.4 17.6 59.5 23.4 92.2 15.9c38.2-8.7 66.8-38.4 75.2-76.3c1.3-5.8 7.2-9.6 13-8.3s9.6 7.2 8.3 13c-10.4 46.8-45.9 83.2-94.2 94.2c-40.2 9.2-82.9 2.1-115.1-19.4c-42.7-28.5-62.7-79.6-63.7-128.5c1.4-60.6 30.7-105.7 75.4-132c32.4-19 72.3-25.8 110.1-25.8c37.5 0 71.9 6.8 98.7 19.8zm-136.6 28.5c-38.3 0-67.9 22.3-77.1 58c-4.9 19-3.7 41.6 3.4 60.5c14.2 37.6 44 57.3 75.6 57.3c27 0 49-16.7 54-41c6.5-31.9-6.3-59.6-26.6-86.7c-17.7-23.7-13.4-15.1-29.3-48.1z" />
+                                </svg>
+                            </a>
+
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/memynanetta?locale=it_IT" target="_blank"
+                                aria-label="Facebook">
+                                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                    <path
+                                        d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form_name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-i18n="form_phone">Telefono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="form_email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_message">Messaggio</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacy-consent" name="privacy-consent" required>
+                        <label for="privacy-consent" data-i18n="form_privacy_consent">
+                            Dichiaro di aver letto la privacy policy dello Studio Legale Agostini e di acconsentire, ai
+                            soli fini del servizio richiesto, al trattamento dei miei dati personali. Consulta la
+                            <a href="#"
+                                onclick="window.open('privacy.html', 'PrivacyPolicy', 'width=600,height=800'); return false;">privacy
+                                policy</a>.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-i18n="form_send">Invia Messaggio</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Avv. Noemi Agostini. P.IVA: IT15956051005. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a> |
+                <a href="cookie.html">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
