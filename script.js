@@ -41,7 +41,7 @@ const translations = {
         form_name: "Nome",
         form_phone: "Telefono",
         form_email: "Email",
-        form_message: "Messaggio",
+        form_message: "Descrivi brevemente il tuo caso",
         form_privacy_consent: "Dichiaro di aver letto la privacy policy dello Studio Legale Agostini e di acconsentire, ai soli fini del servizio richiesto, al trattamento dei miei dati personali. Consulta la <a href='#' class='privacy-link' onclick=\"window.open('privacy.html', 'PrivacyPolicy', 'width=600,height=800'); return false;\">privacy policy</a>.",
         form_send: "Invia Messaggio",
         consultation_banner: "Nota: Il seguente meeting è una proposta di appuntamento, l'avvocato si riserva di modificare l'appuntamento o proporre altri orari.",
